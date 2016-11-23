@@ -1,10 +1,10 @@
 module ApplicationHelper
   def site_name
-    "HillaryBNB"
+    "MarchBNB"
   end
 
   def cause_name
-    "Hillary Clinton"
+    "MarchBNB"
   end
 
   def site_hostname(request)
@@ -16,18 +16,18 @@ module ApplicationHelper
   end
 
   def email_contact
-    "admin@hillarybnb.com"
+    "admin@marchbnb.com"
   end
 
   def privacy_policy_link
-    "https://github.com/DevProgress/HillaryBNB/blob/master/doc/facebook-privacy-statement.txt"
+    "https://github.com/samuelcole/MarchBNB/blob/master/doc/facebook-privacy-statement.txt"
   end
 
   def bug_report_link
-    "https://github.com/DevProgress/HillaryBNB/issues"
+    "https://github.com/samuelcole/MarchBNB/issues"
   end
 
   def github_link
-    "https://github.com/DevProgress/HillaryBNB"
+    "https://github.com/samuelcole/MarchBNB"
   end
 end

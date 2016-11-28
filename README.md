@@ -15,7 +15,7 @@ We would love your help.
 
 ## Setting up development
 * install [Docker Toolbox](https://www.docker.com/toolbox)
-* fork HillaryBNB on github: `git clone git@github.com:<your github username>/HillaryBNB.git && cd HillaryBNB`
+* fork MarchBNB on github and clone: `git clone git@github.com:<your github username>/MarchBNB.git && cd MarchBNB`
 * `cp config/application.yml.example config/application.yml`
 * `export RAILS_ENV=development`
 * `docker-machine create -d virtualbox default`
@@ -23,7 +23,7 @@ We would love your help.
 * `docker-compose build`
 * `docker-compose up -d web`
 * `open "http://$(docker-machine ip default):8080"`
-* `git remote add upstream https://github.com/DevProgress/HillaryBNB` so you can keep in sync with original project by running `git pull upstream master`.
+* `git remote add upstream git@github.com:samuelcole/MarchBNB.git` so you can keep in sync with original project by running `git pull upstream master`.
 * Run tests: `RAILS_ENV=test docker-compose run --rm shell bash -c 'bin/rake db:migrate && bin/rake'`
 * Populate test data: `docker-compose run --rm shell bash -c 'bundle exec rake db:reset'`
 * Rebuild and restart (not always required; DJ unclear on which kind of changes require it): `export RAILS_ENV=development; docker-compose down && docker-compose build && docker-compose up -d web`
@@ -41,13 +41,13 @@ We would love your help.
 * install [Heroku Toolbelt](https://toolbelt.heroku.com/)
 * `heroku plugins:install heroku-container-tools`
 * get application.yml from DJ and put it in config/
-* `heroku container:release --app hillarybnb`   NOTE that this deploys whatever you have locally in your dev environment, not what is committed to git or pushed to github
+* `heroku container:release --app marchbnb`   NOTE that this deploys whatever you have locally in your dev environment, not what is committed to git or pushed to github
 
 If there are database migrations to be deployed:
 * `heroku run rake db:migrate`
 * `heroku restart`
 
-* `heroku open --app hillarybnb`
+* `heroku open --app marchbnb`
 
 ## Sending daily emails
 You should set up the following to run periodically (daily was what BernieBNB did):
@@ -97,7 +97,9 @@ A mailgun account is required to send the confirmation email when signing up.
 * Restart `docker-compose restart web`
 * If you see a 400 error from Mailgun, check your [logs](https://mailgun.com/app/logs). Mailgun may disable your account pending business verification; you'll need to contact support to have them enable it or borrow someone else's sandbox credentials if they don't respond.
 
-## When does HillaryBNB send emails?
+## When does MarchBNB send emails?
+
+**NOTE:** This section is outdated and needs to be updated!
 
 As of 20161010, HillaryBNB.com sends emails nightly.  Every night at 3:30/4am Eastern time we do the following:
 

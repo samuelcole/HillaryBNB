@@ -5,12 +5,12 @@
 
   %header.heading
     %p.lead.text-center.bump
-      %img.img-logo{src: image_url(site_image_name)}
+      %img.img-logo{src: image_url(logo_dark)}
 
   %section.user-travels
     %header
       = link_to 'Find A Host', new_user_visit_url(user), class: 'btn btn-primaryblue btn-block btn-lg'
-      %span On the road for Hillary?
+      %span Coming to the march?
     - unless user.visits.empty?
       %ul
         - user.visits.each do |visit|

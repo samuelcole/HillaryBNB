@@ -2,6 +2,7 @@ initDatepickerGen = function(startDate, endDate, submitButton, updateText) {
   var dp = $('.datepicker').datepicker({
     dateFormat: 'yy-mm-dd',
     dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    defaultDate: startDate.val(),
     minDate: 0,
     // showWeek: true,
     weekHeader: '',
@@ -76,11 +77,11 @@ hostingsUpdateDateText = function(startDate, endDate) {
 
 initDatePicker = function() {
   if($('#visits').length) {
-    initDatepickerGen($('#visit_start_date'), $('#visit_end_date'), 
+    initDatepickerGen($('#visit_start_date'), $('#visit_end_date'),
 		      $('.new_visit, .edit_visit'), visitsUpdateDateText);
   }
   if($('#hostings').length) {
-    initDatepickerGen($('#hosting_start_date'), $('#hosting_end_date'), 
+    initDatepickerGen($('#hosting_start_date'), $('#hosting_end_date'),
 		      $('.new_hosting, .edit_hosting'), hostingsUpdateDateText);
   }
 }

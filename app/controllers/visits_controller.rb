@@ -3,7 +3,7 @@ class VisitsController < ApplicationController
   before_action :ensure_current_user_is_visitor, only: [:show, :edit, :update, :destroy]
 
   def new
-    @visit ||= Visit.new(user_id: params[:user_id])
+    @visit ||= Visit.new(user_id: params[:user_id], start_date: '2017-01-20', end_date: '2017-01-21')
   end
 
   def create

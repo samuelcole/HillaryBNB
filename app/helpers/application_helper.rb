@@ -11,8 +11,12 @@ module ApplicationHelper
     request.host_with_port
   end
 
-  def site_image_name
-    "Highlight_h_logo_large.png"
+  def logo_light
+    "logo-light.png"
+  end
+
+  def logo_dark
+    "logo-dark.png"
   end
 
   def email_contact

@@ -3,7 +3,7 @@
     %img.img-logo{src: image_url(logo_dark)}
 
   %section.instructions
-    %p.lead.text-center How Home Sharing Works
+    %h1.lead.text-center How Home Sharing Works
     %table.bump
       %tr
         %td
@@ -25,6 +25,9 @@
   %hr.bump
 
   %section.sign-up.bump
-    %p.lead.text-center Sign In Using...
-    = link_to "Facebook", "/auth/facebook", {class: 'bump btn btn-primaryblue btn-block btn-lg'}
-    = link_to "Google", "/auth/google_oauth2", {class: 'btn btn-lightblue btn-block btn-lg'}
+    %h2.lead.text-center Sign In Using...
+    .row
+      .col-xs-12.col-sm-6
+        = link_to "Facebook", "/auth/facebook", {class: 'btn btn-facebook btn-block btn-lg'}
+      .col-xs-12.col-sm-6
+        = link_to "Google", "/auth/google_oauth2", {class: 'btn btn-google btn-block btn-lg'}

@@ -22,18 +22,33 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic);
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "variables";
+@import "fontfaces";
 
 /* RWB STYLES */
 
-$primaryblue: #0055b8;
-$lightblue: #53aaff;
+
 
 html, body {
   font-size: 19px;
+  background-color: $primary_color_3;
+}
+
+h1, h2, h3 {
+  color: $primary_color_1;
+  font-family: $font_heading;
+}
+h4, h5, h6, p, span, table, tr, td {
+  color: $primary_color_2;
+}
+
+p, span, table {
+  font-family: "Lato";
 }
 
 body {
-  padding: 15px;
+  padding: 0px;
+  margin: 0px;
 }
 
 ul {
@@ -76,8 +91,8 @@ small, .help-block {
 
 span.big-number {
   padding: 5px;
-  background-color: $primaryblue;
-  color: white;
+  background-color: $accent_color_2;
+  color: $primary_color_3;
   padding: 10px 16px;
   border-radius: 50%;
 }
@@ -163,17 +178,27 @@ footer {
   margin-top: 50px;
 }
 
-.btn-primaryblue {
+.btn {
   color: #fff;
-  background-color: $primaryblue;
-  border-color: darken($primaryblue, 10%);
+  background-color: $accent_color_2;
 }
 
-.btn-lightblue {
+%btn-social {
   color: #fff;
-  background-color: $lightblue;
-  border-color: darken($lightblue, 10%);
+  margin-top: 3px;
+  margin-bottom: 3px;
 }
+
+.btn-facebook {
+  @extend %btn-social;
+  background-color: $facebook_blue;
+}
+
+.btn-google {
+  @extend %btn-social;
+  background-color: $primary_color_1;
+}
+
 
 .img-logo {
   width: 500px;

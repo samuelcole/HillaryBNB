@@ -28,3 +28,6 @@ coverage
 
 # Ignore DJs journal
 journal.txt
+
+.envrc
+.DS_Store

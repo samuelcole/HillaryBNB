@@ -1,5 +1,5 @@
 %div.available-hosts
-  = render "home/navbuttons"
+  = render "layouts/nav/home"
   - if @visit.available_hostings(current_user).empty?
     = render 'empty_visits'
   - else

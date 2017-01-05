@@ -1,9 +1,8 @@
 - button_text = @user.email_confirmed ? 'Save' : 'Confirm Email'
 
 .profile-page
-  %div.group
-    =link_to("« Home", user_url(current_user), class: 'btn btn-info btn-sm left')
-    =link_to("Sign Out", signout_url, method: :delete, class: "btn btn-info btn-sm right")
+  = render "layouts/nav/home"
+
   %p.lead.text-center Profile
 
   = form_for @user, url: { action: 'update' } do |f|
@@ -21,8 +20,9 @@
         = f.phone_field :phone, placeholder: 'Phone number', class: 'form-control'
         %span We'll send this when you contact someone.
 
-      .form-group
-        = f.submit button_text, class: 'btn btn-success btn-block btn-lg'
+      .col-xs-12.col-sm-6
+        = f.submit button_text, class: 'btn btn-success btn-block btn-lg'\
+      .col-xs-12.col-sm-6
         - if @user.email_confirmed
           = link_to "Cancel", user_url(current_user), class: 'btn btn-danger btn-lg btn-block'
         - else

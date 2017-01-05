@@ -39,9 +39,9 @@ ActiveRecord::Schema.define(version: 20161015182226) do
     t.datetime "deleted_at"
     t.string   "city"
     t.string   "state"
-    t.integer  "accomodation_type", default: 0
     t.date     "start_date",        default: '2016-10-10', null: false
     t.date     "end_date",          default: '2016-11-10', null: false
+    t.integer  "accomodation_type", default: 0
   end
 
   add_index "hostings", ["host_id"], name: "index_hostings_on_host_id", using: :btree

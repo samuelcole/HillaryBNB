@@ -1,0 +1,70 @@
+@import "variables";
+
+.btn {
+  &.btn-info, &.btn-danger {
+    color: $primary_color_3;
+    background-color: $primary-color_1;
+    &:hover {
+      color: #fff;
+      background-color: lighten($primary-color_1, 5%);
+    }
+    &:active, &:focus {
+      color: #fff;
+      background-color: darken($primary-color_1, 5%);
+    }
+  }
+}
+
+a i.fa {
+  color: $primary-color_2;
+}
+
+.btn-link {
+  color: $primary_color_2;
+  background-color: $primary-color_3;
+}
+
+.btn-success {
+  border: none;
+  color: #fff;
+  background-color: $accent_color_2;
+
+  &:hover {
+    color: #fff;
+    background-color: lighten($accent_color_2, 5%);
+  }
+  &:active, &:focus {
+    background-color: darken($accent_color_2, 5%);
+  }
+}
+
+%btn-social {
+  color: #fff;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  &:hover {
+    color: #fff;
+  }
+}
+
+.btn-facebook {
+  @extend %btn-social;
+  background-color: $facebook_blue;
+  &:hover {
+    background-color: lighten($facebook_blue, 5%);
+  }
+  &:active, &:focus {
+    background-color: darken($facebook_blue, 5%);
+  }
+}
+
+.btn-google {
+  @extend %btn-social;
+  background-color: $primary_color_1;
+  &:hover {
+    background-color: lighten($primary_color_1, 5%);
+  }
+  &:active, &:focus {
+    background-color: darken($primary_color_1, 5%);
+  }
+}

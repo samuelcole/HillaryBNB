@@ -16,29 +16,55 @@
  *= require jquery-ui/accordion
  */
 
-@import "config/**/*";
 @import "lib/**/*";
+@import "pages/**/*";
 @import "./*";
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic);
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "variables";
 
-/* RWB STYLES */
-
-$primaryblue: #0055b8;
-$lightblue: #53aaff;
+html {
+  position: relative;
+}
 
 html, body {
-  font-size: 19px;
+  font-size: 16px;
+  background-color: $primary_color_3;
+  font-family: $font_body;
+  min-height: 100%;
+}
+
+h1, h2, h3 {
+  color: $primary_color_1;
+  font-family: $font_heading;
+}
+
+h4, h5, h6, span, table, tr, td, button, a {
+  color: $primary_color_2;
+}
+
+p, span, blockquote {
+  font-family: "Lato";
 }
 
 body {
-  padding: 15px;
+  padding: 0px;
+  margin: 0px;
+  padding-bottom: 90px;
 }
 
 ul {
   list-style: none;
   padding: 0;
+}
+
+main {
+  padding-top: 15px;
+   @media screen and (max-width: 680px) {
+     padding-left: 8px;
+     padding-right: 8px;
+  }
 }
 
 small, .help-block {
@@ -76,8 +102,8 @@ small, .help-block {
 
 span.big-number {
   padding: 5px;
-  background-color: $primaryblue;
-  color: white;
+  background-color: $primary_color_1;
+  color: $primary_color_3;
   padding: 10px 16px;
   border-radius: 50%;
 }
@@ -154,26 +180,6 @@ hr {
   display: block;
 }
 
-
-footer {
-  padding: 25px 0;
-  text-align: center;
-  font-size: 16px;
-  border-top: 1px solid $light-gray;
-  margin-top: 50px;
-}
-
-.btn-primaryblue {
-  color: #fff;
-  background-color: $primaryblue;
-  border-color: darken($primaryblue, 10%);
-}
-
-.btn-lightblue {
-  color: #fff;
-  background-color: $lightblue;
-  border-color: darken($lightblue, 10%);
-}
 
 .img-logo {
   width: 500px;

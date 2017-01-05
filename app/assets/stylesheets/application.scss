@@ -16,21 +16,20 @@
  *= require jquery-ui/accordion
  */
 
-@import "config/**/*";
 @import "lib/**/*";
+@import "pages/**/*";
 @import "./*";
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic);
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "variables";
-@import "fontfaces";
 
 html {
   position: relative;
 }
 
 html, body {
-  font-size: 19px;
+  font-size: 16px;
   background-color: $primary_color_3;
   font-family: $font_body;
   min-height: 100%;
@@ -45,7 +44,7 @@ h4, h5, h6, span, table, tr, td, button, a {
   color: $primary_color_2;
 }
 
-p, span, table {
+p, span, blockquote {
   font-family: "Lato";
 }
 
@@ -58,6 +57,14 @@ body {
 ul {
   list-style: none;
   padding: 0;
+}
+
+main {
+  padding-top: 15px;
+   @media screen and (max-width: 680px) {
+     padding-left: 8px;
+     padding-right: 8px;
+  }
 }
 
 small, .help-block {
@@ -171,38 +178,6 @@ hr {
   content: "";
   clear: both;
   display: block;
-}
-
-
-
-.btn {
-  color: #fff;
-  background-color: $accent_color_2;
-}
-
-%btn-social {
-  color: #fff;
-  margin-top: 3px;
-  margin-bottom: 3px;
-  &:hover {
-    color: #fff;
-  }
-}
-
-.btn-facebook {
-  @extend %btn-social;
-  background-color: $facebook_blue;
-  &:hover {
-    background-color: lighten($facebook_blue, 10%);
-  }
-}
-
-.btn-google {
-  @extend %btn-social;
-  background-color: $primary_color_1;
-  &:hover {
-    background-color: lighten($primary_color_1, 10%);
-  }
 }
 
 

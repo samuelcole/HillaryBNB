@@ -1,0 +1,26 @@
+@import "variables";
+
+header {
+  height: 105px;
+  width: 100%;
+
+  .headline {
+    height: 30px;
+    width: 100%;
+    text-align: center;
+    color: $primary_color_2;
+    background-color: $primary_color_1;
+    font-size: $font_size_small;
+    padding-top: 6px;
+    text-transform: uppercase;
+  }
+
+  .banner {
+    height: 75px;
+    background-color: $background_color_dark;
+    background-image: url("logo.jpg");
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: left;
+  }
+}

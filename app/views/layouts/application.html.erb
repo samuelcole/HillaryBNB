@@ -38,6 +38,7 @@ HHHHHH       →→HHHH
 </head>
 
 <body id="<%= params[:controller] %>" class="<%= params[:action] %>">
+  <%= render "layouts/header" %>
 
   <main class="center-block page">
     <% if alert %>
@@ -60,23 +61,8 @@ HHHHHH       →→HHHH
 
     <div id="fb-root"></div>
     <div id="twitter-wjs"></div>
-    <footer>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-4">
-            <ul class="list-inline quicklinks">
-              <li><%= link_to "FAQ", page_path('faq') %></li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <%= link_to "Feedback", "http://goo.gl/forms/PHeNrIVtaRMGdTU22" %>
-          </div>
-          <div class="col-md-4">
-            <%= link_to "Privacy", privacy_policy_path %>
-          </div>
-        </div>
-      </div>
-    </footer>
   </main>
+
+  <%= render "layouts/footer" %>
 </body>
 </html>

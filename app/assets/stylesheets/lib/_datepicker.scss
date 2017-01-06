@@ -1,7 +1,10 @@
 $blue: #147Fd7;
+@import "variables";
 
 .datepicker {
+
   .ui-datepicker {
+    background: $primary_color_3 !important;
     padding: .5em .5em .2em;
     width: 100%;
 
@@ -75,7 +78,7 @@ $blue: #147Fd7;
   }
 
   .highlight .ui-state-default {
-    background: $blue;
+    background: $accent_color_2;
     color: white;
   }
 }

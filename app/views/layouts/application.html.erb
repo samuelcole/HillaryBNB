@@ -13,13 +13,15 @@
   <meta property="og:description" content="<%= description %>" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="http://<%= site_hostname(request) %>" />
-  <meta property="og:image" content="<%= image_url logo_dark %>" />
+  <meta property="og:image" content="<%= image_url('WMOW_SocialAssets_Facebook-CoverPhoto-Liberty.jpg') %>" />
 
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@MarchBNB" />
   <meta name="twitter:description" content="<%= description %>" />
+  <meta name="twitter:image" content="<%= image_url('WMOW_SocialAssets_Twitter-CoverPhoto-LibertyJan21.jpg') %>" />
 
   <title><%= site_name %></title>
-  <%= favicon_link_tag '/favicon.ico' %>
+  <%= favicon_link_tag 'favicon.ico' %>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <meta name="google-site-verification" content="Rf4-_xxiyhJpGWzPBcEhqvFbJi22lrm_w2Khg8XekZI" />
@@ -27,7 +29,7 @@
   <%= render "layouts/google_analytics" %>
 </head>
 
-<body id="<%= params[:controller] %>" class="<%= params[:action] %>">
+<body id="<%= params[:controller] %>" class="<%= params[:action] %> clearfix">
   <%= render "layouts/header" %>
 
   <main class="center-block page">

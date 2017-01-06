@@ -52,6 +52,19 @@ body {
   padding: 0px;
   margin: 0px;
   padding-bottom: 90px;
+  overflow-x: hidden;
+
+  @media screen and (max-width: 768px) {
+     padding-bottom: 135px;
+  }
+
+  @media screen and (max-width: 540px) {
+     padding-bottom: 145px;
+  }
+
+  @media screen and (max-width: 360px) {
+     padding-bottom: 155px;
+  }
 }
 
 ul {
@@ -61,10 +74,10 @@ ul {
 
 main {
   padding-top: 15px;
-   @media screen and (max-width: 680px) {
+  padding-bottom: 20px;
+  @media screen and (max-width: 768px) {
      padding-left: 8px;
      padding-right: 8px;
-     padding-bottom: 55px;
   }
 }
 

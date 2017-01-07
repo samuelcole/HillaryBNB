@@ -1,3 +1,5 @@
+@import 'variables';
+
 #users {
 
   section .small-details {
@@ -41,6 +43,10 @@ div.user-home {
 div.profile-page {
   .btn {
     margin-bottom: 20px;
+    &[disabled="disabled"]{
+      opacity: 0.8;
+      background-color: $light-gray;
+    }
   }
 
   .form-fields {
@@ -56,4 +62,7 @@ div.profile-page {
     color: gray;
   }
 
+  .tos-link {
+    color: $accent_color_2;
+  }
 }

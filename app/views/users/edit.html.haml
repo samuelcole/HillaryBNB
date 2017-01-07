@@ -20,6 +20,11 @@
         = f.phone_field :phone, placeholder: 'Phone number', class: 'form-control'
         %span We'll send this when you contact someone.
 
+      .form-group
+        = f.check_box :accepted_tos
+        = f.label :accepted_tos, "I accept the TOS"
+
+
       .col-xs-12.col-sm-6
         = f.submit button_text, class: 'btn btn-success btn-block btn-lg'\
       .col-xs-12.col-sm-6

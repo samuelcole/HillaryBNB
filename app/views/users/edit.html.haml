@@ -20,8 +20,13 @@
         = f.phone_field :phone, placeholder: 'Phone number', class: 'form-control'
         %span We'll send this when you contact someone.
 
+      .form-group
+        = f.check_box :accepted_tos, id: 'accepted_tos', checked: false
+        = f.label :accepted_tos, "I accept the"
+        = link_to "Terms of Service", page_path('terms_of_service'), target: '_blank', class: 'tos-link'
+
       .col-xs-12.col-sm-6
-        = f.submit button_text, class: 'btn btn-success btn-block btn-lg'\
+        = f.submit button_text, id: 'submit', class: 'btn btn-success btn-block btn-lg', disabled: 'disabled'\
       .col-xs-12.col-sm-6
         - if @user.email_confirmed
           = link_to "Cancel", user_url(current_user), class: 'btn btn-danger btn-lg btn-block'
@@ -35,3 +40,17 @@
         class: 'btn btn-default btn-block btn-lg',
         method: 'delete',
         data: { confirm: "Are you sure? This will permanently delete your account." }
+
+:javascript
+  $(document).ready(function(){
+    var inputSelector = "#accepted_tos"
+    var confirmEmailBtn = $('input#submit');
+
+    $(inputSelector).on('click', function(){
+      if(document.querySelector(inputSelector).checked){
+        confirmEmailBtn.removeAttr('disabled')
+      }else{
+        confirmEmailBtn.attr("disabled", "disabled");
+      }
+    });
+  });

@@ -83,7 +83,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :phone, :email)
+    params.require(:user).permit(:first_name, :phone, :email, :accepted_tos)
   end
 
   def ensure_current_user_is_user

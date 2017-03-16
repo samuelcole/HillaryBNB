@@ -20,6 +20,7 @@
 @import "pages/**/*";
 @import "./*";
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic);
+@import url(https://fonts.googleapis.com/css?family=Work+Sans:400,700);
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "variables";
@@ -38,6 +39,8 @@ html, body {
 h1, h2, h3 {
   color: $primary_color_1;
   font-family: $font_heading;
+  text-transform: uppercase;
+  font-weight: 700 !important;
 }
 
 h4, h5, h6, span, table, tr, td, button, a {

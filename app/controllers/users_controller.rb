@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     @user = User.find_by_confirm_token(params[:id])
 
     if not @user
-      flash[:errors] = ["Something went wrong, maybe you are already unsubscribed?  If you are having trouble please admin@marchbnb.com"]
+      flash[:errors] = ["Something went wrong, maybe you are already unsubscribed?  If you are having trouble please admin@peopleshousing.com"]
       redirect_to root_url
     end
   end
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
         redirect_to root_url
       end
     else
-      flash[:errors] = ["Something went wrong, maybe you are already unsubscribed?  If you are having trouble please admin@marchbnb.com"]
+      flash[:errors] = ["Something went wrong, maybe you are already unsubscribed?  If you are having trouble please admin@peopleshousing.com"]
       redirect_to root_url
     end
   end
@@ -75,7 +75,7 @@ class UsersController < ApplicationController
 
       redirect_to user_url(@user)
     else
-      flash[:errors] = ["Sorry, something went wrong.  Please try again, or email us at admin@marchbnb.com for help."]
+      flash[:errors] = ["Sorry, something went wrong.  Please try again, or email us at admin@peopleshousing.com for help."]
       redirect_to root_url
     end
   end

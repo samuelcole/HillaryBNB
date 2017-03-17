@@ -1,6 +1,6 @@
 Hi <%= @host.first_name %>,
 <br><br>
-Thank you for offering to host volunteers on MarchBNB! This visitor expressed interest in your offer and hopes to stay with you right away:
+Thank you for offering to host volunteers on People's Housing! This visitor expressed interest in your offer and hopes to stay with you right away:
 <br><br>
 <hr>
 <%= @contact_info[:visitor].first_name %>:<br><br>
@@ -11,12 +11,12 @@ Group of <%= @contact_info[:visit].num_travelers %>
 <br><br>
 Please reach out to this visitor to coordinate their stay as soon as possible.<br><br>
 Thanks!<br>
-The MarchBNB Team<br>
+The People's Housing Team<br>
 <hr>
 <br><br>
-PLEASE NOTE: Guests and hosts have NOT been vetted by the campaign, by<br>
+PLEASE NOTE: Guests and hosts have NOT been vetted by event organizers, by<br>
 volunteers, or by anyone else. It is your responsibility to contact<br>
 potential hosts and visitors in advance and decide whether you are<br>
 comfortable and safe staying with them.<br><br>
-You can add, edit or delete your host offers anytime here: <%= link_to "MarchBNB - Host", edit_hosting_url(@hosting) %>
-To stop receiving emails from MarchBNB, you can <%= link_to "unsubscribe", unsubscribe_user_url(@host.confirm_token) %>.
+You can add, edit or delete your host offers anytime here: <%= link_to "People's Housing - Host", edit_hosting_url(@hosting) %>
+To stop receiving emails from People's Housing, you can <%= link_to "unsubscribe", unsubscribe_user_url(@host.confirm_token) %>.

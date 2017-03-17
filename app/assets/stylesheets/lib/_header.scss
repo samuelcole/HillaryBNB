@@ -8,8 +8,8 @@ header {
     height: 30px;
     width: 100%;
     text-align: center;
-    color: $primary_color_2;
-    background-color: $primary_color_1;
+    color: $background_color_orange;
+    background-color: $background_color_dark;
     font-size: $font_size_small;
     padding-top: 6px;
     text-transform: uppercase;
@@ -17,11 +17,14 @@ header {
 
   .banner {
     height: 75px;
-    background-color: $background_color_dark;
-    background-image: image-url("logo.jpg");
-    background-repeat: no-repeat;
-    background-size: auto 100%;
-    background-position: left;
+    background-color: $background_color_orange;
+
+    .logo {
+      background-image: image-url("logo.png");
+      background-size: auto 110%;
+      background-repeat: no-repeat;
+      height: 150px;
+    }
 
     a.home-link {
       height: 75px;

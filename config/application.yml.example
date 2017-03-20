@@ -5,12 +5,12 @@ FACEBOOK_SECRET: 'abcde'
 GOOGLE_CLIENT_ID: "TBD"
 GOOGLE_CLIENT_SECRET: "TBD"
 BING_GEOCODE_ID: "TBD"
-SITEURL: 'www.marchbnb.com'
-MAILER_URL: 'www.marchbnb.com'
-BASE_DOMAIN: 'marchbnb.com'
-FB_CAPTION: 'Host a volunteer!'
-CAUSE_NAME: 'March BNB'
-DEFAULT_SENDER_ADDRESS: "someone@marchbnb.com"
+SITEURL: 'www.peopleshousing.com'
+MAILER_URL: 'www.peopleshousing.com'
+BASE_DOMAIN: 'peopleshousing.com'
+FB_CAPTION: 'Host a supporter!'
+CAUSE_NAME: 'People's Housing'
+DEFAULT_SENDER_ADDRESS: "admin@peopleshousing.com"
 
 development:
   MAILGUN_API_KEY:       "TBD"

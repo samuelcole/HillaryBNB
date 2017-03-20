@@ -1,6 +1,6 @@
 {
-  "name": "HillaryBNB",
-  "homepage": "http://www.marchbnb.com",
+  "name": "Peoples Housing",
+  "homepage": "http://www.peopleshousing.com",
   "license": "MIT",
   "version": "0.0.0",
   "main": "application.js",
@@ -12,10 +12,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/DevProgress/HillaryBNB.git"
+    "url": "https://github.com/samuelcole/MarchBNB.git"
   },
   "bugs": {
-    "url": "https://github.com/DevProgress/HillaryBNB/issues"
+    "url": "https://github.com/samuelcole/MarchBNB/issues"
   },
   "dependencies": {
     "bower": "^1.7.7"

@@ -97,11 +97,11 @@ A mailgun account is required to send the confirmation email when signing up.
 * Restart `docker-compose restart web`
 * If you see a 400 error from Mailgun, check your [logs](https://mailgun.com/app/logs). Mailgun may disable your account pending business verification; you'll need to contact support to have them enable it or borrow someone else's sandbox credentials if they don't respond.
 
-## When does MarchBNB send emails?
+## When does People's Housing send emails?
 
 **NOTE:** This section is outdated and needs to be updated!
 
-As of 20161010, HillaryBNB.com sends emails nightly.  Every night at 3:30/4am Eastern time we do the following:
+As of 20161010, Peopleshousing.com sends emails nightly.  Every night at 3:30/4am Eastern time we do the following:
 
 For each Hosting Offer registered in the system, if there are any visitors who clicked the "SEND MY CONTACT INFO" button within the past 24 hours, we gather their contact information and email them to the the host. (Note that this means a host may receive multiple emails from us if they have multiple Hosting Offers).  (This logic is in https://github.com/DevProgress/HillaryBNB/blob/master/lib/tasks/send_new_contacts_digest.rake)
 

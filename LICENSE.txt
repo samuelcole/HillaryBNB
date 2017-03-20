@@ -1,6 +1,6 @@
-HillaryBNB: A home-sharing app for Clinton supporters, adapted from BernieBNB by Coders For Sanders
+People's Housing: A home-sharing app, adapted from BernieBNB by Coders For Sanders and HillaryBNB by DevProgress
     Copyright (C) 2016  Coders For Sanders and DevProgress
-
+    
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
     published by the Free Software Foundation, either version 3 of the

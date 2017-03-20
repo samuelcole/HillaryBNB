@@ -8,7 +8,7 @@ class UserMailer < ApplicationMailer
     deliver_message(
       from: default_sender_address,
       to: user.email,
-      subject: "MarchBNB - Confirm Your Email",
+      subject: "People's Housing - Confirm Your Email",
       html: template("user_mailer/registration_confirmation.html.erb")
     )
   end
@@ -19,7 +19,7 @@ class UserMailer < ApplicationMailer
     deliver_message(
       from: default_sender_address,
       to: @user.email,
-      subject: "MarchBNB - Thanks for signing up!",
+      subject: "People's Housing - Thanks for signing up!",
       html: template("user_mailer/welcome_email.html.erb")
     )
   end

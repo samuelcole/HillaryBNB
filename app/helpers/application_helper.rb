@@ -1,10 +1,10 @@
 module ApplicationHelper
   def site_name
-    "MarchBNB"
+    "People's Housing"
   end
 
   def cause_name
-    "MarchBNB"
+    "People's Housing"
   end
 
   def site_hostname(request)
@@ -20,7 +20,7 @@ module ApplicationHelper
   end
 
   def email_contact
-    "admin@marchbnb.com"
+    "admin@peopleshousing.com"
   end
 
   def privacy_policy_link

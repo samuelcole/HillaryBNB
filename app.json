@@ -1,6 +1,6 @@
 {
-  "name": "People\'s Housing",
-  "description": "People\'s Housing",
+  "name": "Peoples Housing",
+  "description": "Peoples Housing",
   "image": "heroku/ruby",
   "addons": [
     "heroku-postgresql"

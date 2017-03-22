@@ -10,7 +10,7 @@ of town and to help supporters on the road find lodging.
 * Bower for front end asset management
 
 ## Contributing
-Please e-mail dsjoerg@gmail.com.
+Please e-mail sam@samuelcole.name.
 We would love your help.
 
 ## Setting up development

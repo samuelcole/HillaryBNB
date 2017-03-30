@@ -14,19 +14,199 @@ Please e-mail sam@samuelcole.name.
 We would love your help.
 
 ## Setting up development
-* install [Docker Toolbox](https://www.docker.com/toolbox)
-* fork MarchBNB on github and clone: `git clone git@github.com:<your github username>/MarchBNB.git && cd MarchBNB`
+
+* Fork MarchBNB on github and clone: `git clone git@github.com:<your github username>/MarchBNB.git && cd MarchBNB`
 * `cp config/application.yml.example config/application.yml`
-* `export RAILS_ENV=development`
-* `docker-machine create -d virtualbox default`
-* `eval $(docker-machine env default)`
-* `docker-compose build`
-* `docker-compose up -d web`
-* `open "http://$(docker-machine ip default):8080"`
 * `git remote add upstream git@github.com:samuelcole/MarchBNB.git` so you can keep in sync with original project by running `git pull upstream master`.
-* Run tests: `RAILS_ENV=test docker-compose run --rm shell bash -c 'bin/rake db:migrate && bin/rake'`
-* Populate test data: `docker-compose run --rm shell bash -c 'bundle exec rake db:reset'`
-* Rebuild and restart (not always required; DJ unclear on which kind of changes require it): `export RAILS_ENV=development; docker-compose down && docker-compose build && docker-compose up -d web`
+
+### The Manual Way
+
+This is a fairly standard Rails application, so the normal setup
+procedures will work:
+
+1. You need to install the correct version of Ruby and Rubygems (based
+on the versions specified in the ``Gemfile``). You may want to use a
+tool like ``rvm`` to isolate your Ruby and gem files.
+2. Install a postgresql database.
+3. Run ``bundle install`` to install all of your dependencies.
+4. Run ``bin/rake db:migrate RAILS_ENV=development`` to run your
+   database migration.
+5. Run ``rails server -b 0.0.0.0:8080`` to start your sever.
+6. Test your app by visiting the following URL:
+  - http://localhost:8080
+
+### Using Docker
+
+The project includes a ``Dockerfile`` that you can use to create a
+ruby development server. You can then use this container with a
+Postgresql container to create a complete development environment.
+Usage is optional based on your comfort level with Docker.
+
+#### Building The Rails Image 
+
+To use it, you would first need to build your image using the
+following commands:
+
+    cd ~/src/MarchBNB
+    sudo docker build -t marchbnb/rails .
+	
+#### Creating A Docker Network
+
+Next you'll need a Docker Network that your containers can use to talk
+to each other. Run this command:
+
+    sudo docker network create marchbnb-network
+	
+#### Running Your Containers
+
+##### Postgres
+
+First create a directory on your host where you can store your
+persisted data:
+
+    mkdir -vp "$HOME/docker/container/marchbnb-pg-dev/var/lib/postgresql/data"
+	
+Next run your container:
+
+    export HOST_PGDATA_HOME="$HOME/docker/container/marchbnb-pg-dev/var/lib/postgresql/data"
+    export POSTGRES_PASSWORD=
+    export POSTGRES_USER=postgres
+    export POSTGRES_DB=postgres
+
+    sudo docker run \
+         --name db \
+		 --net=marchbnb-network \
+         -e POSTGRES_PASSWORD="$POSTGRES_PASSWORD" \
+         -e POSTGRES_USER="$POSTGRES_USER" \
+         -e POSTGRES_DB="$POSTGRES_DB" \
+         -v "$HOST_PGDATA_HOME":/var/lib/postgresql/data \
+         -d \
+         postgres:9.6-alpine
+		 
+This container will persist even if it's stopped. If you need
+to replace it simply remove the existing container and this 
+run the ``docker run`` command above again. Otherwise you can 
+use the ``docker stop`` and ``docker start`` container commands
+to manage it.
+
+##### Rails
+
+When using Docker you don't have to run the ``bundle install`` command
+because the ``Dockerfile`` already takes care of that for you. So next
+we're going to launch a container that uses the ``marchbnb/rails``
+image we build earlier to perform our first database migation:
+
+    cd ~/src/MarchBNB
+    sudo docker run \
+         -e RAILS_ENV=development \
+         --net=marchbnb-network \
+         --rm \
+         --user "$(id -u):$(id -g)" \
+         -v "$PWD":/usr/src/app \
+         -w /usr/src/app \
+         -it \
+         marchbnb/rails \
+         bash -c "bin/rake db:migrate RAILS_ENV=development"
+		 
+This container will automatically delete itself once its done runnning.
+You can then run your Rails server with this command:
+
+    cd ~/src/MarchBNB
+    sudo docker run \
+         -e RAILS_ENV=development \
+         --name marchbnb-rails \
+         --net=marchbnb-network \
+         --rm \
+         --user "$(id -u):$(id -g)" \
+         -v "$PWD":/usr/src/app \
+         -w /usr/src/app \
+         -p 8080:8080 \
+         -d \
+         marchbnb/rails
+		 
+You can then test your application by visiting this url:
+
+  - http://localhost:8080
+  
+If you have any issues with the container you can "log into" it
+by executing this command:
+
+    cd ~/src/MarchBNB
+    sudo docker run \
+         -e RAILS_ENV=development \
+         --name debug-marchbnb-rails \
+         --net=marchbnb-network \
+         --rm \
+         --user "$(id -u):$(id -g)" \
+         -v "$PWD":/usr/src/app \
+         -w /usr/src/app \
+         -p 8080:8080 \
+         -it \
+         marchbnb/rails \
+         bash
+		 
+From here you can run rails commands and interrogate your runtime
+environment.
+
+#### Running Tests
+
+The first time you run the tests you'll need to set up the database 
+like this:
+
+    cd ~/src/MarchBNB
+    sudo docker run \
+         -e RAILS_ENV=test \
+         --name debug-marchbnb-rails \
+         --net=marchbnb-network \
+         --rm \
+         --user "$(id -u):$(id -g)" \
+         -v "$PWD":/usr/src/app \
+         -w /usr/src/app \
+         -p 8080:8080 \
+         -it \
+         marchbnb/rails \
+         bash -c 'bundle exec rake db:create'
+		 
+Then you can run tests like this:
+
+    cd ~/src/MarchBNB
+    sudo docker run \
+         -e RAILS_ENV=test \
+         --name debug-marchbnb-rails \
+         --net=marchbnb-network \
+         --rm \
+         --user "$(id -u):$(id -g)" \
+         -v "$PWD":/usr/src/app \
+         -w /usr/src/app \
+         -p 8080:8080 \
+         -it \
+         marchbnb/rails \
+         bash -c 'bin/rake db:migrate && bin/rake'
+		 
+You can populate test data like this:
+
+Then you can run tests like this:
+
+    cd ~/src/MarchBNB
+    sudo docker run \
+         -e RAILS_ENV=test \
+         --name debug-marchbnb-rails \
+         --net=marchbnb-network \
+         --rm \
+         --user "$(id -u):$(id -g)" \
+         -v "$PWD":/usr/src/app \
+         -w /usr/src/app \
+         -p 8080:8080 \
+         -it \
+         marchbnb/rails \
+         bash -c 'bundle execrake db:reset'
+		 
+Finally, you can "rebuild and restart" like this:
+
+1. Delete your ``marchbnb-rails`` container.
+2. Delete your ``marchbnb/rails`` Docker image.
+3. Delete the directory containing your Postgresql data.
+4. Start over.
 
 ## Updating gem versions
 * `docker-compose run --rm shell bundle update [gemname]`

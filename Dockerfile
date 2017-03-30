@@ -9,6 +9,6 @@ WORKDIR /usr/src/app
 COPY Gemfile* ./
 RUN bundle install
 
-EXPOSE 3000
+EXPOSE 8080
 
 CMD ["rails", "server", "-b", "0.0.0.0"]

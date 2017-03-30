@@ -28,8 +28,8 @@ development: &default
   database: postgres
   pool: 5
   username: postgres
-  password:
-  host: db
+  password: somethingClever
+  host: marchbnb-pg-dev
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

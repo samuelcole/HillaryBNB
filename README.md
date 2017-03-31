@@ -206,27 +206,74 @@ Finally, you can "rebuild and restart" like this:
 3. Delete the directory containing your Postgresql data.
 4. Start over.
 
-## Updating gem versions
-* `docker-compose run --rm shell bundle update [gemname]`
+#### Updating gem versions
 
-Don't forget to mention that they need to recreate the image.
+First, update your ''Gemfile`` if necessary. Then run the following
+command to update your ``Gemfile.lock`` file:
 
-## Modifying schema
-* EXAMPLE: `docker-compose run --rm shell rails generate migration AddAccomodationTypeToHosting accomodation_type:integer`
+    cd ~/src/MarchBNB
+      sudo docker run \
+           -e RAILS_ENV=test \
+           --name debug-marchbnb-rails \
+           --net=marchbnb-network \
+           --rm \
+           --user "$(id -u):$(id -g)" \
+           -v "$PWD":/usr/src/app \
+           -w /usr/src/app \
+           -p 8080:8080 \
+           -it \
+           marchbnb/rails \
+           bash -c 'bundle update [gemname]'
 
-## Connecting to dev DB
-* `docker-compose exec herokuPostgresql psql -U postgres`
+Next, rebuild your Docker image using the commands in the **Building
+The Rails Image** above.
+
+The next time you start your container the new version of the gem will
+be there.
+
+#### Modifying schema
+Here's an **example** of a command you wuld use to create a new migration:
+
+    cd ~/src/MarchBNB
+      sudo docker run \
+           -e RAILS_ENV=test \
+           --name debug-marchbnb-rails \
+           --net=marchbnb-network \
+           --rm \
+           --user "$(id -u):$(id -g)" \
+           -v "$PWD":/usr/src/app \
+           -w /usr/src/app \
+           -p 8080:8080 \
+           -it \
+           marchbnb/rails \
+           bash -c 'rails generate migration AddAccomodationTypeToHosting accomodation_type:integer'
+
+#### Connecting to dev DB
+
+    cd ~/src/MarchBNB
+      sudo docker run \
+           -e RAILS_ENV=test \
+           --name debug-marchbnb-rails \
+           --net=marchbnb-network \
+           --rm \
+           --user "$(id -u):$(id -g)" \
+           -v "$PWD":/usr/src/app \
+           -w /usr/src/app \
+           -p 8080:8080 \
+           -it \
+           marchbnb/rails \
+           bash -c 'psql -U postgres'
 
 ## Deploying to Heroku
-* install [Heroku Toolbelt](https://toolbelt.heroku.com/)
-* `heroku plugins:install heroku-container-tools`
-* get application.yml from DJ and put it in config/
-* `heroku container:release --app marchbnb`   NOTE that this deploys whatever you have locally in your dev environment, not what is committed to git or pushed to github
+This application is designed to be deployed on Heroku using the
+standard process. After setting up your application in Heroku you can
+push it with the following command:
+
+    git push heroku master
 
 If there are database migrations to be deployed:
 * `heroku run rake db:migrate`
 * `heroku restart`
-
 * `heroku open --app marchbnb`
 
 ## Sending daily emails
@@ -240,7 +287,7 @@ You should set up the following to run periodically (daily was what BernieBNB di
 ## Setup local hostname
 Google OAuth only allows hostnames for its OAuth URLs. Setup a local hostname that points to your docker machine
 ### Mac
-* Run `docker-machine ip default` to find your docker machine IP
+* Run `inspect marchbnb-rails | grep IPAddress` to find your docker machine IP
 * Copy that into `/etc/hosts` and give it whatever hostname you want (ex. hbnb.com)
 * Visit `hbnb.com:8080` to verify it works
 

@@ -31,7 +31,7 @@ tool like ``rvm`` to isolate your Ruby and gem files.
 3. Run ``bundle install`` to install all of your dependencies.
 4. Run ``bin/rake db:migrate RAILS_ENV=development`` to run your
    database migration.
-5. Run ``rails server -b 0.0.0.0:8080`` to start your sever.
+5. Run ``rails server -b 0.0.0.0 -p 8080`` to start your sever.
 6. Test your app by visiting the following URL:
   - http://localhost:8080
 
@@ -185,8 +185,6 @@ Then you can run tests like this:
 		 
 You can populate test data like this:
 
-Then you can run tests like this:
-
     cd ~/src/MarchBNB
     sudo docker run \
          -e RAILS_ENV=test \
@@ -210,6 +208,8 @@ Finally, you can "rebuild and restart" like this:
 
 ## Updating gem versions
 * `docker-compose run --rm shell bundle update [gemname]`
+
+Don't forget to mention that they need to recreate the image.
 
 ## Modifying schema
 * EXAMPLE: `docker-compose run --rm shell rails generate migration AddAccomodationTypeToHosting accomodation_type:integer`

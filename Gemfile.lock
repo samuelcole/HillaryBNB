@@ -40,9 +40,6 @@ GEM
       activerecord (~> 4.0)
       activesupport (~> 4.0)
     addressable (2.4.0)
-    airbrake (5.4.1)
-      airbrake-ruby (~> 1.4)
-    airbrake-ruby (1.4.3)
     arel (6.0.3)
     ast (2.3.0)
     bcrypt (3.1.11)
@@ -216,7 +213,7 @@ GEM
     orderly (0.0.3)
       capybara (>= 1.1)
       rspec (>= 2.14)
-    parser (2.3.1.2)
+    parser (2.4.0.0)
       ast (~> 2.2)
     pg (0.18.4)
     pry (0.10.3)
@@ -374,7 +371,6 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_paranoid (= 0.5.0.beta2)
-  airbrake
   bcrypt
   better_errors
   binding_of_caller
@@ -429,5 +425,8 @@ DEPENDENCIES
   webmock
   zonebie
 
+RUBY VERSION
+   ruby 2.2.6p396
+
 BUNDLED WITH
-   1.12.5
+   1.14.6

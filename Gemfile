@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.3'
+ruby '2.2.6'
 
 gem 'rails', '4.2.7.1'
 
@@ -71,7 +71,6 @@ group :test do
 end
 
 group :production, :staging do
-  gem 'airbrake'
   gem 'rails_12factor'
 end
 

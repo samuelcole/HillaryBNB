@@ -28,7 +28,7 @@ development: &default
   database: postgres
   pool: 5
   username: postgres
-  password:
+  password: 
   host: db
 
 # Warning: The database defined as "test" will be erased and

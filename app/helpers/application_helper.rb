@@ -1,10 +1,10 @@
 module ApplicationHelper
   def site_name
-    "People's Housing"
+    "Swing Left Localhost"
   end
 
   def cause_name
-    "People's Housing"
+    "Swing Left Localhost"
   end
 
   def site_hostname(request)

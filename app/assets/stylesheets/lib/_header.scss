@@ -8,7 +8,7 @@ header {
     height: 30px;
     width: 100%;
     text-align: center;
-    color: $background_color_orange;
+    color: $background_color_red;
     background-color: $background_color_dark;
     font-size: $font_size_small;
     padding-top: 6px;
@@ -17,13 +17,13 @@ header {
 
   .banner {
     height: 75px;
-    background-color: $background_color_orange;
+    background-color: $background_color_red;
 
     .logo {
       background-image: image-url("logo.png");
       background-size: auto 110%;
       background-repeat: no-repeat;
-      height: 150px;
+      height: 60px;
     }
 
     a.home-link {
